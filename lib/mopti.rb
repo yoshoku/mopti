@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'mopti/version'
+require 'numo/narray'
 
-module Mopti
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require 'mopti/version'
+require 'mopti/scaled_conjugate_gradient'
