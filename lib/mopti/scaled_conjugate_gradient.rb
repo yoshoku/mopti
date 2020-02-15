@@ -4,7 +4,42 @@ module Mopti
   # ScaledConjugateGradient is a class that implements multivariate optimization using scaled conjugate gradient method.
   #
   # @example
-  #   optimizer = Mopti::ScaledConjugateGradient.new
+  #   # Seek the minimum value of the expression a*u**2 + b*u*v + c*v**2 + d*u + e*v + f for
+  #   # given values of the parameters and an initial guess (u, v) = (0, 0).
+  #   # https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_cg.html#scipy.optimize.fmin_cg
+  #   require 'numo/narray'
+  #   require 'mopti'
+  #
+  #   args = [2, 3, 7, 8, 9, 10]
+  #
+  #   f = proc do |x, a, b, c, d, e, f|
+  #     u = x[0]
+  #     v = x[1]
+  #     a * u**2 + b * u * v + c * v**2 + d * u + e * v + f
+  #   end
+  #
+  #   g = proc do |x, a, b, c, d, e, f|
+  #     u = x[0]
+  #     v = x[1]
+  #     gu = 2 * a * u + b * v + d
+  #     gv = b * u + 2 * c * v + e
+  #     Numo::DFloat[gu, gv]
+  #   end
+  #
+  #   x0 = Numo::DFloat.zeros(2)
+  #
+  #   optimizer = Mopti::ScaledConjugateGradient.new(fnc: f, jcb: g, x_init: x0, args: args)
+  #   result = optimizer.each { |params| params }
+  #
+  #   pp result
+  #
+  #   # {:x=>Numo::DFloat#shape=[2]
+  #   # [-1.80847, -0.25533],
+  #   #  :n_fev=>10,
+  #   #  :n_jev=>18,
+  #   #  :n_iter=>9,
+  #   #  :fnc=>1.6170212789006122,
+  #   #  :jcb=>1.8698188678645777e-07}
   #
   # *Reference*
   # 1. M F. Moller, "A Scaled Conjugate Gradient Algorithm for Fast Supervised Learning," Neural Networks, Vol. 6, pp. 525--533, 1993.
