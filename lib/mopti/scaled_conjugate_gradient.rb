@@ -29,7 +29,7 @@ module Mopti
   #   x0 = Numo::DFloat.zeros(2)
   #
   #   optimizer = Mopti::ScaledConjugateGradient.new(fnc: f, jcb: g, x_init: x0, args: args)
-  #   result = optimizer.each { |params| params }
+  #   result = optimizer.map { |params| params }.last
   #
   #   pp result
   #
@@ -137,6 +137,7 @@ module Mopti
         end
 
         n_iter += 1
+        yield({ x: x, n_fev: n_fev, n_jev: n_jev, n_iter: n_iter, fnc: f_curr, jcb: j_curr })
 
         if success
           break if (f_next - f_prev).abs < @ftol
@@ -163,11 +164,7 @@ module Mopti
           gamma = (j_prev - j_next).dot(j_next) / mu
           d = -j_next + gamma * d
         end
-
-        yield({ x: x, n_fev: n_fev, n_jev: n_jev, n_iter: n_iter, fnc: f_curr, jcb: j_curr })
       end
-
-      yield({ x: x, n_fev: n_fev, n_jev: n_jev, n_iter: n_iter, fnc: f_curr, jcb: j_curr }) if n_iter < @max_iter
     end
 
     SIGMA_INIT = 1e-4
