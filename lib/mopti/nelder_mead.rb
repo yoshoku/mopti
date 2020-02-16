@@ -7,6 +7,23 @@ module Mopti
   #   require 'numo/narray'
   #   require 'mopti'
   #
+  #   args = Numo::DFloat[2, 3]
+  #
+  #   f = proc { |x, a| (8 * (x - a)**2).sum }
+  #
+  #   x0 = Numo::DFloat.zeros(2)
+  #
+  #   optimizer = Mopti::NelderMead.new(fnc: f, x_init: x0, args: args)
+  #   result = optimizer.map { |params| params }.last
+  #
+  #   pp result
+  #
+  #   # {:x=>Numo::DFloat(view)#shape=[2]
+  #   # [2, 3],
+  #   #  :n_fev=>165,
+  #   #  :n_iter=>84,
+  #   #  :fnc=>5.694864987422661e-13}
+  #
   # *Reference*
   # 1. F. Gao and L. Han, "Implementing the Nelder-Mead simplex algorithm with adaptive parameters," Computational Optimization and Applications, vol. 51 (1), pp. 259--277, 2012.
   class NelderMead
