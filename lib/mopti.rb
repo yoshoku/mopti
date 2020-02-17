@@ -6,6 +6,7 @@ require 'mopti/version'
 require 'mopti/nelder_mead'
 require 'mopti/scaled_conjugate_gradient'
 
+# Mopti is a multivariate optimization library in Ruby.
 module Mopti
   module_function
 
