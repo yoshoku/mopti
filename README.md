@@ -19,6 +19,10 @@ Or install it yourself as:
 
     $ gem install mopti
 
+## Documentation
+
+- [Mopti API Documentation](https://yoshoku.github.io/mopti/doc/)
+
 ## Usage
 
 ```ruby
