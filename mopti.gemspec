@@ -6,8 +6,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ['yoshoku']
   spec.email         = ['yoshoku@outlook.com']
 
-  spec.summary       = 'Multivariate Optimization Library in Ruby'
-  spec.description   = 'Multivariate Optimization Library in Ruby'
+  spec.summary       = 'Multivariate Optimization Library in Ruby.'
+  spec.description   = <<~MSG
+    Multivariate Optimization Library in Ruby.
+    Mopti supports Nelder-Mead simplex method and Scaled Conjugate Gradient.
+  MSG
   spec.homepage      = 'https://github.com/yoshoku/mopti'
   spec.license       = 'BSD-3-Clause'
 

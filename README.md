@@ -1,6 +1,7 @@
 # Mopti
 
 Mopti is a multivariate optimization library in Ruby.
+Mopti supports Nelder-Mead simplex method and Scaled Conjugate Gradient.
 
 ## Installation
 
