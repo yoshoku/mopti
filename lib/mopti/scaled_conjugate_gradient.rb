@@ -78,7 +78,7 @@ module Mopti
     #   - fnc [Float] Value of the objective function.
     #   - jcb [Numo::Narray] Values of the jacobian
     # @return [Enumerator] If block is not given, this method returns Enumerator.
-    def each(&block)
+    def each
       return to_enum(__method__) unless block_given?
 
       x = @x_init
