@@ -42,7 +42,7 @@ module Mopti
   #   #  :jcb=>1.8698188678645777e-07}
   #
   # *Reference*
-  # 1. M F. Moller, "A Scaled Conjugate Gradient Algorithm for Fast Supervised Learning," Neural Networks, Vol. 6, pp. 525--533, 1993.
+  # 1. Moller, M F., "A Scaled Conjugate Gradient Algorithm for Fast Supervised Learning," Neural Networks, Vol. 6, pp. 525--533, 1993.
   class ScaledConjugateGradient
     include Enumerable
 

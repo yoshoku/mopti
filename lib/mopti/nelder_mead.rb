@@ -25,7 +25,7 @@ module Mopti
   #   #  :fnc=>5.694864987422661e-13}
   #
   # *Reference*
-  # 1. F. Gao and L. Han, "Implementing the Nelder-Mead simplex algorithm with adaptive parameters," Computational Optimization and Applications, vol. 51 (1), pp. 259--277, 2012.
+  # 1. Gao, F. and Han, L., "Implementing the Nelder-Mead simplex algorithm with adaptive parameters," Computational Optimization and Applications, vol. 51 (1), pp. 259--277, 2012.
   class NelderMead
     include Enumerable
 
