@@ -2,7 +2,7 @@
 
 ![Ruby](https://github.com/yoshoku/mopti/workflows/Ruby/badge.svg)
 [![Gem Version](https://badge.fury.io/rb/mopti.svg)](https://badge.fury.io/rb/mopti)
-[![BSD 3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](https://github.com/yoshoku/mopti/blob/master/LICENSE.txt)
+[![BSD 3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](https://github.com/yoshoku/mopti/blob/main/LICENSE.txt)
 [![Documentation](http://img.shields.io/badge/api-reference-blue.svg)](https://yoshoku.github.io/mopti/doc/)
 
 Mopti is a multivariate optimization library in Ruby.
@@ -89,9 +89,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/yoshoku/mopti. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/yoshoku/mopti/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/yoshoku/mopti. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/yoshoku/mopti/blob/main/CODE_OF_CONDUCT.md).
 
 
 ## Code of Conduct
 
-Everyone interacting in the Mopti project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/yoshoku/mopti/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Mopti project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/yoshoku/mopti/blob/main/CODE_OF_CONDUCT.md).
