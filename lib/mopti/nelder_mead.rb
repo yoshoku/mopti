@@ -72,7 +72,7 @@ module Mopti
       sim[0, true] = x
       n.times do |k|
         y = x.dup
-        y[k] = y[k] != 0 ? (1 + NON_ZERO_TAU) * y[k] : ZERO_TAU
+        y[k] = (y[k]).zero? ? ZERO_TAU : (1 + NON_ZERO_TAU) * y[k]
         sim[k + 1, true] = y
       end
 
