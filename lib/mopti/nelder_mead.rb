@@ -132,7 +132,7 @@ module Mopti
         end
 
         if shrink
-          (1..n).times do |j|
+          (1..n).to_a.each do |j|
             sim[j, true] = sim[0, true] + delta * (sim[j, true] - sim[0, true])
             fsim[j] = func(sim[j, true])
             n_fev += 1
