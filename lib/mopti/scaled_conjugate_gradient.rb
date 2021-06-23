@@ -82,10 +82,10 @@ module Mopti
       return to_enum(__method__) unless block_given?
 
       x = @x_init
-      f_prev = func(x)
+      f_prev = func(x, @args)
       n_fev = 1
       f_curr = f_prev
-      j_next = jacb(x)
+      j_next = jacb(x, @args)
       n_jev = 1
 
       j_curr = j_next.dot(j_next)
@@ -109,7 +109,7 @@ module Mopti
 
           sigma = SIGMA_INIT / Math.sqrt(kappa)
           x_plus = x + sigma * d
-          j_plus = jacb(x_plus)
+          j_plus = jacb(x_plus, @args)
           n_jev += 1
           theta = d.dot(j_plus - j_next) / sigma
         end
@@ -122,7 +122,7 @@ module Mopti
         alpha = -mu / delta
 
         x_next = x + alpha * d
-        f_next = func(x_next)
+        f_next = func(x_next, @args)
         n_fev += 1
 
         delta = 2 * (f_next - f_prev) / (alpha * mu)
@@ -146,7 +146,7 @@ module Mopti
           f_prev = f_next
 
           j_prev = j_next
-          j_next = jacb(x)
+          j_next = jacb(x, @args)
           n_jev += 1
 
           j_curr = j_next.dot(j_next)
@@ -175,27 +175,27 @@ module Mopti
 
     private
 
-    def func(x)
-      if @args.is_a?(Hash)
-        @fnc.call(x, **@args)
-      elsif @args.is_a?(Array)
-        @fnc.call(x, *@args)
-      elsif @args.nil?
+    def func(x, args)
+      if args.is_a?(Hash)
+        @fnc.call(x, **args)
+      elsif args.is_a?(Array)
+        @fnc.call(x, *args)
+      elsif args.nil?
         @fnc.call(x)
       else
-        @fnc.call(x, @args)
+        @fnc.call(x, args)
       end
     end
 
-    def jacb(x)
-      if @args.is_a?(Hash)
-        @jcb.call(x, **@args)
-      elsif @args.is_a?(Array)
-        @jcb.call(x, *@args)
-      elsif @args.nil?
+    def jacb(x, args)
+      if args.is_a?(Hash)
+        @jcb.call(x, **args)
+      elsif args.is_a?(Array)
+        @jcb.call(x, *args)
+      elsif args.nil?
         @jcb.call(x)
       else
-        @jcb.call(x, @args)
+        @jcb.call(x, args)
       end
     end
   end

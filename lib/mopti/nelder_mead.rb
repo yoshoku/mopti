@@ -78,7 +78,7 @@ module Mopti
 
       fsim = Numo::DFloat.zeros(n + 1)
 
-      (n + 1).times { |k| fsim[k] = func(sim[k, true]) }
+      (n + 1).times { |k| fsim[k] = func(sim[k, true], @args) }
       n_fev = n + 1
 
       ind = fsim.sort_index
@@ -91,13 +91,13 @@ module Mopti
 
         xbar = sim[0...-1, true].sum(0) / n
         xr = xbar + alpha * (xbar - sim[-1, true])
-        fr = func(xr)
+        fr = func(xr, @args)
         n_fev += 1
 
         shrink = true
         if fr < fsim[0]
           xe = xbar + beta * (xr - xbar)
-          fe = func(xe)
+          fe = func(xe, @args)
           n_fev += 1
           shrink = false
           if fe < fr
@@ -113,7 +113,7 @@ module Mopti
           fsim[-1] = fr
         elsif fr < fsim[-1]
           xoc = xbar + gamma * (xr - xbar)
-          foc = func(xoc)
+          foc = func(xoc, @args)
           n_fev += 1
           if foc <= fr
             shrink = false
@@ -122,7 +122,7 @@ module Mopti
           end
         else
           xic = xbar - gamma * (xr - xbar)
-          fic = func(xic)
+          fic = func(xic, @args)
           n_fev += 1
           if fic < fsim[-1]
             shrink = false
@@ -134,7 +134,7 @@ module Mopti
         if shrink
           (1..n).to_a.each do |j|
             sim[j, true] = sim[0, true] + delta * (sim[j, true] - sim[0, true])
-            fsim[j] = func(sim[j, true])
+            fsim[j] = func(sim[j, true], @args)
             n_fev += 1
           end
         end
@@ -156,15 +156,15 @@ module Mopti
 
     private
 
-    def func(x)
-      if @args.is_a?(Hash)
-        @fnc.call(x, **@args)
-      elsif @args.is_a?(Array)
-        @fnc.call(x, *@args)
-      elsif @args.nil?
+    def func(x, args)
+      if args.is_a?(Hash)
+        @fnc.call(x, **args)
+      elsif args.is_a?(Array)
+        @fnc.call(x, *args)
+      elsif args.nil?
         @fnc.call(x)
       else
-        @fnc.call(x, @args)
+        @fnc.call(x, args)
       end
     end
   end
