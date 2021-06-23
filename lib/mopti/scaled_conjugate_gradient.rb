@@ -153,8 +153,8 @@ module Mopti
           break if j_curr <= @jtol
         end
 
-        beta = [beta * 4, BETA_MAX].min if delta < 0.25
-        beta = [beta / 4, BETA_MIN].max if delta > 0.75
+        beta = beta * 4 < BETA_MAX ? beta * 4 : BETA_MAX if delta < 0.25
+        beta = beta / 4 > BETA_MIN ? beta / 4 : BETA_MIN if delta > 0.75
 
         if n_successes == x.size
           d = -j_next
