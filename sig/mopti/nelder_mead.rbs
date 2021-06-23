@@ -1,0 +1,21 @@
+module Mopti
+  class NelderMead
+    include Enumerable[untyped]
+
+    @fnc: Method | Proc
+
+    def initialize: (fnc: Method | Proc fnc,
+                     x_init: Numo::DFloat x_init, ?args: untyped? args, ?max_iter: Integer? max_iter,
+                     ?xtol: Float xtol, ?ftol: Float ftol) -> void
+
+    # def each: () { (x: Numo::DFloat, n_fev: Integer, n_iter: Integer, fnc: Float) -> untyped } -> untyped
+    def each: () { (untyped) -> untyped } -> untyped
+
+    private
+
+    NON_ZERO_TAU: Float
+    ZERO_TAU: Float
+
+    def func: (Numo::DFloat x, untyped args) -> Float
+  end
+end

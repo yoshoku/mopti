@@ -1,0 +1,20 @@
+module Numo
+  class NArray
+    def self.zeros: (*untyped) -> untyped
+    def dot: (untyped b) -> untyped
+    def empty?: () -> bool
+    def ndim: () -> Integer
+    def shape: () -> Array[Integer]
+    def swapaxes: (Integer, Integer) -> untyped
+  end
+
+  class DFloat < NArray
+    def -@: () -> untyped
+    def +: (untyped) -> untyped
+    def -: (untyped) -> untyped
+    def *: (untyped) -> untyped
+    def /: (untyped) -> untyped
+    def []: (*untyped) -> untyped
+    def []=: (*untyped) -> untyped
+  end
+end

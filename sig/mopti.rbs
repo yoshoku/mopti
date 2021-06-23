@@ -1,0 +1,5 @@
+module Mopti
+  VERSION: String
+
+  def self?.minimize: (algorithm: String algorithm, **untyped args) -> Hash[Symbol, untyped]?
+end

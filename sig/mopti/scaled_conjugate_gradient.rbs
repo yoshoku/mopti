@@ -1,0 +1,24 @@
+module Mopti
+  class ScaledConjugateGradient
+    include Enumerable[untyped]
+
+    @fnc: Method | Proc
+    @jcb: Method | Proc
+
+    def initialize: (fnc: Method | Proc fnc, jcb: Method | Proc jcb,
+                     x_init: Numo::DFloat x_init, ?args: untyped? args, ?max_iter: Integer max_iter,
+                     ?xtol: Float xtol, ?ftol: Float ftol, ?jtol: Float jtol) -> void
+
+    # def each: () { (x: Numo::DFloat, n_fev: Integer, n_jev: Integer, n_iter: Integer, fnc: Float, jcb: Numo::DFloat) -> untyped } -> untyped
+    def each: () { (untyped) -> untyped } -> untyped
+
+    private
+
+    SIGMA_INIT: Float
+    BETA_MIN: Float
+    BETA_MAX: Float
+
+    def func: (Numo::DFloat x, untyped args) -> Float
+    def jacb: (Numo::DFloat x, untyped args) -> Numo::DFloat
+  end
+end
