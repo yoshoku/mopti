@@ -38,7 +38,7 @@ module Mopti
     #   If nil is given, max_iter sets to 200 * number of dimensions.
     # @param xtol [Float] Tolerance for termination for the optimal vector norm.
     # @param ftol [Float] Tolerance for termination for the objective function value.
-    def initialize(fnc:, args: nil, x_init:, max_iter: nil, xtol: 1e-6, ftol: 1e-6)
+    def initialize(fnc:, x_init:, args: nil, max_iter: nil, xtol: 1e-6, ftol: 1e-6)
       @fnc = fnc
       @args = args
       @x_init = x_init

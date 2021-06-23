@@ -56,7 +56,7 @@ module Mopti
     # @param xtol [Float] Tolerance for termination for the optimal vector norm.
     # @param ftol [Float] Tolerance for termination for the objective function value.
     # @param jtol [Float] Tolerance for termination for the gradient norm.
-    def initialize(fnc:, jcb:, args: nil, x_init:, max_iter: 200, xtol: 1e-6, ftol: 1e-8, jtol: 1e-7)
+    def initialize(fnc:, jcb:, x_init:, args: nil, max_iter: 200, xtol: 1e-6, ftol: 1e-8, jtol: 1e-7)
       @fnc = fnc
       @jcb = jcb
       @x_init = x_init
