@@ -117,7 +117,10 @@ module Mopti
         delta = theta + beta * kappa
         if delta <= 0
           delta = beta * kappa
-          beta -= theta / kappa
+          # TODO: Investigate the cause of the type error.
+          # Cannot assign a value of type `::Complex` to a variable of type `::Float`
+          # beta -= theta / kappa
+          beta = (beta - (theta / kappa)).to_f
         end
         alpha = -mu / delta
 
