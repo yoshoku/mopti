@@ -1,3 +1,6 @@
+# 0.2.1
+- Fix version specifier of runtime dependencies.
+
 # 0.2.0
 - Add type declaration files.
 - Refactor some codes with type check.
