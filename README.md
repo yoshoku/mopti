@@ -3,7 +3,7 @@
 ![Ruby](https://github.com/yoshoku/mopti/workflows/Ruby/badge.svg)
 [![Gem Version](https://badge.fury.io/rb/mopti.svg)](https://badge.fury.io/rb/mopti)
 [![BSD 3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](https://github.com/yoshoku/mopti/blob/main/LICENSE.txt)
-[![Documentation](http://img.shields.io/badge/api-reference-blue.svg)](https://yoshoku.github.io/mopti/doc/)
+[![Documentation](https://img.shields.io/badge/api-reference-blue.svg)](https://yoshoku.github.io/mopti/doc/)
 
 Mopti is a multivariate optimization library in Ruby.
 Mopti supports Nelder-Mead simplex method and Scaled Conjugate Gradient.
