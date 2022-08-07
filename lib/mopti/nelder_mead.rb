@@ -61,7 +61,7 @@ module Mopti
 
       x = @x_init.dup
       n = x.size
-      max_iter = @max_iter || 200 * n
+      max_iter = @max_iter || (200 * n)
 
       alpha = 1.0
       beta = n > 1 ? 1 + 2.fdiv(n) : 2.0
@@ -90,13 +90,13 @@ module Mopti
         break if ((sim[1..-1, true] - sim[0, true]).abs.flatten.max <= @xtol) && ((fsim[0] - fsim[1..-1]).abs.max <= @ftol)
 
         xbar = sim[0...-1, true].sum(0) / n
-        xr = xbar + alpha * (xbar - sim[-1, true])
+        xr = xbar + (alpha * (xbar - sim[-1, true]))
         fr = func(xr, @args)
         n_fev += 1
 
         shrink = true
         if fr < fsim[0]
-          xe = xbar + beta * (xr - xbar)
+          xe = xbar + (beta * (xr - xbar))
           fe = func(xe, @args)
           n_fev += 1
           shrink = false
@@ -112,7 +112,7 @@ module Mopti
           sim[-1, true] = xr
           fsim[-1] = fr
         elsif fr < fsim[-1]
-          xoc = xbar + gamma * (xr - xbar)
+          xoc = xbar + (gamma * (xr - xbar))
           foc = func(xoc, @args)
           n_fev += 1
           if foc <= fr
@@ -121,7 +121,7 @@ module Mopti
             fsim[-1] = foc
           end
         else
-          xic = xbar - gamma * (xr - xbar)
+          xic = xbar - (gamma * (xr - xbar))
           fic = func(xic, @args)
           n_fev += 1
           if fic < fsim[-1]
@@ -133,7 +133,7 @@ module Mopti
 
         if shrink
           (1..n).to_a.each do |j|
-            sim[j, true] = sim[0, true] + delta * (sim[j, true] - sim[0, true])
+            sim[j, true] = sim[0, true] + (delta * (sim[j, true] - sim[0, true]))
             fsim[j] = func(sim[j, true], @args)
             n_fev += 1
           end

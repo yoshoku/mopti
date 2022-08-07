@@ -108,13 +108,13 @@ module Mopti
           break if kappa < 1e-16
 
           sigma = SIGMA_INIT / Math.sqrt(kappa)
-          x_plus = x + sigma * d
+          x_plus = x + (sigma * d)
           j_plus = jacb(x_plus, @args)
           n_jev += 1
           theta = d.dot(j_plus - j_next) / sigma
         end
 
-        delta = theta + beta * kappa
+        delta = theta + (beta * kappa)
         if delta <= 0
           delta = beta * kappa
           # TODO: Investigate the cause of the type error.
@@ -124,7 +124,7 @@ module Mopti
         end
         alpha = -mu / delta
 
-        x_next = x + alpha * d
+        x_next = x + (alpha * d)
         f_next = func(x_next, @args)
         n_fev += 1
 
@@ -165,7 +165,7 @@ module Mopti
           n_successes = 0
         elsif success
           gamma = (j_prev - j_next).dot(j_next) / mu
-          d = -j_next + gamma * d
+          d = -j_next + (gamma * d)
         end
       end
     end
