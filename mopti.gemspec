@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'lib/mopti/version'
 
 Gem::Specification.new do |spec|
@@ -18,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.metadata['source_code_uri'] = 'https://github.com/yoshoku/mopti'
   spec.metadata['changelog_uri'] = 'https://github.com/yoshoku/mopti/blob/master/CHANGELOG.md'
   spec.metadata['documentation_url'] = 'https://yoshoku.github.io/mopti/doc/'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
