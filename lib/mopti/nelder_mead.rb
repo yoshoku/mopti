@@ -89,7 +89,7 @@ module Mopti
       while n_iter < max_iter
         break if ((sim[1..-1, true] - sim[0, true]).abs.flatten.max <= @xtol) && ((fsim[0] - fsim[1..-1]).abs.max <= @ftol)
 
-        xbar = sim[0...-1, true].sum(0) / n
+        xbar = sim[0...-1, true].sum(axis: 0) / n
         xr = xbar + (alpha * (xbar - sim[-1, true]))
         fr = func(xr, @args)
         n_fev += 1
