@@ -52,5 +52,8 @@ Naming/MethodParameterName:
 Style/SlicingWithRange:
   Enabled: false
 
+Style/YodaExpression:
+  Enabled: false
+
 RSpec/MultipleMemoizedHelpers:
   Max: 12
