@@ -1,12 +1,16 @@
 # Mopti
 
+**This project is discontinued. Development has been moved to [Numo::Optimize](https://github.com/yoshoku/numo-optimize).**
+
 [![Build Status](https://github.com/yoshoku/mopti/actions/workflows/build.yml/badge.svg)](https://github.com/yoshoku/mopti/actions/workflows/build.yml)
 [![Gem Version](https://badge.fury.io/rb/mopti.svg)](https://badge.fury.io/rb/mopti)
 [![BSD 3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](https://github.com/yoshoku/mopti/blob/main/LICENSE.txt)
-[![Documentation](https://img.shields.io/badge/api-reference-blue.svg)](https://yoshoku.github.io/mopti/doc/)
+[![Documentation](https://img.shields.io/badge/api-reference-blue.svg)](https://gemdocs.org/gems/mopti/)
 
 Mopti is a multivariate optimization library in Ruby.
 Mopti supports Nelder-Mead simplex method and Scaled Conjugate Gradient.
+
+
 
 ## Installation
 
